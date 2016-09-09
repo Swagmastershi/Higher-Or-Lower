@@ -12,5 +12,38 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="I&apos;ve chosen a random number between 0 and 20!"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/infoText"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Can you guess it?"
+        android:id="@+id/questionText"
+        android:layout_below="@+id/infoText"
+        android:layout_centerHorizontal="true"
+        android:textSize="35sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/guessedNumber"
+        android:layout_below="@+id/questionText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guess"
+        android:id="@+id/button"
+        android:layout_below="@+id/guessedNumber"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:onClick="checkGuess" />
 </RelativeLayout>
