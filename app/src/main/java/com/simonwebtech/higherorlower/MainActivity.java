@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.NumberFormat;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,25 +15,51 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkGuess(View view) {
 
-        EditText guessedNumber = (EditText) findViewById(R.id.guessedNumber);
-
-        String guessedNumberString = guessedNumber.getText().toString();
-        int guessedNumberInt = Integer.parseInt(guessedNumberString);
-
         String message = "";
-        if(guessedNumberInt > randomNum) {
-            message = "Too high!";
+
+        //See if the input is empty
+        boolean isEmpty = false;
+
+        //See if the it is a number entered, not a blank space
+        try {
+            EditText guessedNumber = (EditText) findViewById(R.id.guessedNumber);
+            String guessedNumberString = guessedNumber.getText().toString();;
+            int guessedNumberInt = Integer.parseInt(guessedNumberString);
+
+
+            if (guessedNumberInt > randomNum) {
+                message = "Too high!";
+            } else if (guessedNumberInt < randomNum) {
+                message = "Too low!";
+            } else {
+                message = "Correct! It was " + randomNum + "!";
+            }
         }
-        else if (guessedNumberInt < randomNum) {
-            message = "Too low!";
+        
+        catch (NumberFormatException e) {
+
+            Toast.makeText(getApplicationContext(), "Please enter a number!", Toast.LENGTH_LONG).show();
+            isEmpty = true;
+
+        }
+
+        //If number was not correct, keep going. If yes, generate new number
+        if (message.equals("Correct! It was " + randomNum + "!")){
+
+            Toast.makeText(getApplicationContext(), message + " Another random number was created.", Toast.LENGTH_LONG).show();
+            Random randomGenerator = new Random();
+            randomNum = randomGenerator.nextInt(21);
         }
         else {
-            message = "Correct! It was " + randomNum + "!";
+
+            if(isEmpty == false) {
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+            }
+
         }
 
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
