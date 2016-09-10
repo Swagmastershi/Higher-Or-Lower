@@ -14,18 +14,23 @@
         android:layout_height="wrap_content"
         android:text="I&apos;ve chosen a random number between 0 and 20!"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:id="@+id/infoText"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:background="#39f2e5"
+        android:focusableInTouchMode="true"
+        android:textColor="#fc0909" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Can you guess it?"
         android:id="@+id/questionText"
+        android:textSize="35sp"
+        android:textColor="#1206f4"
         android:layout_below="@+id/infoText"
         android:layout_centerHorizontal="true"
-        android:textSize="35sp" />
+        android:layout_marginTop="22dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -33,17 +38,18 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/guessedNumber"
+        android:layout_marginTop="23dp"
         android:layout_below="@+id/questionText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guess"
         android:id="@+id/button"
+        android:layout_marginTop="21dp"
+        android:onClick="checkGuess"
         android:layout_below="@+id/guessedNumber"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
-        android:onClick="checkGuess" />
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

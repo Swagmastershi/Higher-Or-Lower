@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 message = "Correct! It was " + randomNum + "!";
             }
         }
-        
+
         catch (NumberFormatException e) {
 
             Toast.makeText(getApplicationContext(), "Please enter a number!", Toast.LENGTH_LONG).show();
@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
             if(isEmpty == false) {
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
             }
-
+            //If number was empty, the exception message would print but also
+            //the "message" string would also print with a blank message
         }
 
     }
